@@ -1,0 +1,394 @@
+// Color Variables
+$primary: #002c6e;
+$secondary: #5271ff;
+$secondary-dark: #3252e5;
+$bg: #ffffff;
+$bg-dark: #ffffffa1;
+
+// Import font from assets folder
+@font-face {
+  font-family: "SF Pro";
+  src: url("/fonts/SF-pro-regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SF Pro";
+  src: url("/fonts/SF-pro-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SF Pro";
+  src: url("/fonts/SF-pro-bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("/fonts/ClashDisplay-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Clash Display";
+  src: url("/fonts/ClashDisplay-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Clash Display";
+  src: url("/fonts/ClashDisplay-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Clash Display";
+  src: url("/fonts/ClashDisplay-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.wrapper {
+  font-family: "SF Pro", sans-serif;
+  color: $primary;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ul,
+  ul > * {
+    list-style-type: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 650px;
+    background-color: #f4f6ff;
+    z-index: -90;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 85px;
+    gap: 10px;
+    font-weight: 500;
+    width: 100%;
+    margin: 35px 0;
+
+    .discordButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 24px;
+      gap: 10.15px;
+
+      font-family: "Clash Display", sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+
+      color: #ffffff;
+
+      background: $secondary;
+      box-shadow: 0px 10px 15px rgba(82, 113, 255, 0.2);
+      border-radius: 8px;
+    }
+
+    .middle {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: space-between;
+      gap: 33px;
+    }
+  }
+
+  .main {
+    .hero {
+      .text {
+        text-align: center;
+        .heading {
+          margin: auto;
+          font-family: "Clash Display", sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 94.5794px;
+          line-height: 103.84%;
+          max-width: 980px;
+          margin-top: 55px;
+          /* or 98px */
+
+          text-align: center;
+
+          color: #002c6e;
+          position: relative;
+
+          &::before,
+          &::after {
+            content: "";
+            // image
+            position: absolute;
+            top: 30px;
+            left: -130px;
+            width: 53px;
+            height: 67px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            background-image: url("/images/stars.svg");
+
+            // Blink animation with easing
+            animation: blink 3s ease-in-out infinite;
+          }
+
+          // Blink keyframers
+          @keyframes blink {
+            0% {
+              opacity: 0;
+            }
+            50% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+            }
+          }
+
+          &::after {
+            // Flip vertically
+            left: unset;
+            right: -130px;
+
+            transform: scaleY(-1);
+          }
+        }
+
+        .content {
+          font-family: "SF Pro", sans-serif;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 163.84%;
+          /* or 39px */
+
+          color: $primary;
+          margin-top: 17px;
+        }
+      }
+      .illustration {
+        margin: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin-top: 39px;
+        .left {
+          filter: drop-shadow(0px 11.1429px 15.6px rgba(0, 0, 0, 0.08));
+        }
+
+        .middle {
+          img {
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          }
+          position: relative;
+          &::before,
+          &::after {
+            content: "";
+            // image
+            position: absolute;
+            top: 50px;
+            width: 86px;
+            height: 86px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: drop-shadow(0px 15px 25px rgba(3, 31, 75, 0.08));
+
+            // Hover animation
+            animation: hover 3s ease-in-out infinite;
+          }
+
+          // Hover keyframes
+          @keyframes hover {
+            0% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-10px);
+            }
+            100% {
+              transform: translateY(0);
+            }
+          }
+
+          &::before {
+            left: -140px;
+            background-image: url("/images/rocket.svg");
+          }
+
+          &::after {
+            right: -140px;
+            background-image: url("/images/cashbag.svg");
+          }
+        }
+
+        .right {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 15px;
+
+          h4 {
+            max-width: 140px;
+            font-weight: normal;
+            margin: 0;
+          }
+
+          img {
+            filter: drop-shadow(0px 4px 5px rgba(250, 168, 50, 0.4));
+          }
+        }
+      }
+    }
+
+    .features {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+
+      background: #5271ff;
+      border-radius: 40px;
+      max-width: 1220px;
+      margin: auto;
+      color: white;
+      margin-top: 70px;
+
+      .top,
+      .bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        flex-shrink: 0;
+
+        .stroke {
+          width: 53px;
+          height: 48px;
+
+          background: #3252e6;
+          border-radius: 0px 0px 50px 50px;
+        }
+      }
+
+      .middle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 100px;
+        margin: 30px 0;
+
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 21px;
+
+          * {
+            margin: 0;
+          }
+
+          h4 {
+            font-family: "Clash Display";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 43.6488px;
+            line-height: 54px;
+            /* identical to box height */
+
+            color: #ffffff;
+            margin: -2.07851px 0px;
+          }
+
+          .subtext {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 19.2424px;
+            line-height: 22px;
+
+            color: rgba(255, 255, 255, 0.63);
+          }
+        }
+      }
+
+      .bottom {
+        .stroke {
+          border-radius: 50px 50px 0px 0px;
+        }
+      }
+    }
+  }
+
+  .footer {
+    margin: 100px auto 0;
+    text-align: center;
+    padding: 50px 100px;
+    background-color: #f4f6ff;
+    color: $secondary-dark;
+    font-family: "SF Pro";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 163.84%;
+  }
+
+  // Utilities
+
+  .headerLink {
+    display: block;
+    color: $primary;
+
+    &.active {
+      color: $secondary;
+    }
+  }
+
+  .secondaryDark {
+    color: #5271ff;
+  }
+
+  .strong {
+    font-weight: bold;
+  }
+
+  .underline {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -7px;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background-color: unquote($secondary + "50");
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      background-color: unquote($secondary + "99");
+      bottom: -5px;
+    }
+  }
+}
